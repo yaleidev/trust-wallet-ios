@@ -232,7 +232,7 @@ class BrowserViewController: UIViewController {
         } else {
             if error.domain == NSURLErrorDomain,
                 let failedURL = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL {
-                changeURL(failedURL)
+                delegate?.runAction(action: .changeURL(failedURL))
             }
             errorView.show(error: error)
         }
